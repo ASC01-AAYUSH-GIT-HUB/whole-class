@@ -1,0 +1,33 @@
+java: James Gosling
+
+OOPs: object Oriented Programming
+
+object: physical, properties, behavior : features
+
+simple/context
+
+concept.
+design.
+logic.
+code.
+
+first principles approach:-breaking things into the basic forms before trying to solve it.
+Are we building the right thing
+are we building it right
+
+
+Keywords in java
+
+class Stationery{
+}
+
+//inheritance//
+class pen extends Stationary{
+}
+
+classes are used for creating objects.
+classes are specification (specs) for creating objects.
+
+polymorpshism: different forms 
+incapsulation: hiding details from other
+abstraction: pointing the details
