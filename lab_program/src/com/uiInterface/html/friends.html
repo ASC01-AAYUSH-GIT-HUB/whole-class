@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form for friends</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 40px; /* More space between form and output */
+            justify-content: center;
+            align-items: flex-start;
+        }
+        #friends-form {
+            color: green;
+            border: 2px solid wheat;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: wheat;
+            margin: 0;
+        }
+        #friend-details {
+            width: 300px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body style="background-color: azure;">
+    <h1 style="color: blue;text-align: center;">Friends Form</h1>
+    <div class="container">
+        <form id="friends-form">
+            Name:
+            <input type="text" id="friend-name" required placeholder="Enter friend's name"><br><br>
+            Age:
+            <input type="number" id="friend-age" required placeholder="Enter friend's age"><br><br>
+            Email:
+            <input type="email" id="friend-email" required placeholder="Enter friend's email"><br><br>
+            Phone:
+            <input type="tel" id="friend-phone" required placeholder="Enter friend's phone number"><br><br>
+            Date of Birth:
+            <input type="date" id="friend-dob" required><br><br>
+            Address:
+            <textarea id="friend-address" rows="2" cols="30" placeholder="Enter friend's address"></textarea><br><br>
+            
+            <input type="submit" id="submit-friend" value="Submit">
+            <input type="reset" id="reset-friend" value="Reset">
+        </form>
+    </div>
+    <div id="friend-details-table">
+        
+    </div>
+    <script>
+        var res = document.getElementById('friends-form');
+        res.addEventListener('submit', addingtext);
+
+        function addingtext(event) {
+            event.preventDefault(); // Prevent the default form submission
+            console.log("Form submitted but not shared to server");
+            var name = document.getElementById('friend-name').value;
+            var age = document.getElementById('friend-age').value;
+            var email = document.getElementById('friend-email').value;
+            var phone = document.getElementById('friend-phone').value;
+            var dob = document.getElementById('friend-dob').value;
+            var address = document.getElementById('friend-address').value;
+
+            // Remove previous details div if it exists
+            var oldDiv = document.getElementById('friend-details');
+            if (oldDiv) {
+                oldDiv.parentNode.removeChild(oldDiv);
+            }
+
+            // Create a new div for the output
+            var newDiv = document.createElement('div');
+            newDiv.id = "friend-details";
+            newDiv.innerHTML = `
+                <h2>Entered Friend Details:</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Date of Birth:</strong> ${dob}</p>
+                <p><strong>Address:</strong> ${address}</p>
+            `;
+            newDiv.style.border = "2px solid wheat";
+            newDiv.style.padding = "10px";
+            newDiv.style.borderRadius = "10px";
+            newDiv.style.backgroundColor = "wheat";
+            newDiv.style.color = "green";
+            newDiv.style.width = "300px";
+            newDiv.style.margin = "0";
+
+            // Insert the new div right after the form
+            var container = document.querySelector('.container');
+            container.insertBefore(newDiv, res.nextSibling);
+            var newTable = document.createElement('table');
+            newTable.innerHTML = `
+                <tr><th>Name</th><td>${name}</td></tr>
+                <tr><th>Age</th><td>${age}</td></tr>
+                <tr><th>Email</th><td>${email}</td></tr>
+                <tr><th>Phone</th><td>${phone}</td></tr>
+                <tr><th>Date of Birth</th><td>${dob}</td></tr>
+                <tr><th>Address</th><td>${address}</td></tr>
+            `;
+            newTable.style.border = "1px solid black";
+            newTable.style.borderCollapse = "collapse";
+            newTable.style.width = "100%";
+            for (let row of newTable.rows) {
+                for (let cell of row.cells) {
+                    cell.style.border = "1px solid black";
+                    cell.style.padding = "6px";
+                }
+            }
+            var tableDiv = document.getElementById('friend-details-table');
+            tableDiv.innerHTML = ""; // Clear previous table if any
+            tableDiv.appendChild(newTable);
+        }
+    </script>
+</body>
+</html>

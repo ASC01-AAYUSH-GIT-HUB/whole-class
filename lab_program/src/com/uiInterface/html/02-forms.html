@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .container{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+    </style>
+</head>
+<!-- property : value; is used in style there can be multiple properties separated by ';' one property can have multiple values. (priority is the order in which we write the values) -->
+<body style="background-color: azure;"> 
+    <h1 style="color: blue;text-align: center;">Our first form</h1>
+    <form id="reg-form" style="margin: 50px;color: green ;border: 2px solid wheat;padding: 10px;border-radius: 10px;background-color: wheat;">
+        Name: 
+        <input type="text" id="user-name" required placeholder="write your name"><br><br>
+        Password: 
+        <input type="password" id="user-password" required placeholder="enter your password"><br><br>
+        Gender:
+        <input type="radio" name="gender">Male
+        <input type="radio" name="gender">Female<br><br>
+        <fieldset>
+            <legend>Food Preferences</legend>
+            <input type="radio" name="foodpreferences">vegetarian
+            <input type="radio" name="foodpreferences">non-vegetarian
+        </fieldset>
+        <br>
+        Nationality:
+        <select id="nationality" required>
+            <option value="indian">Indian</option>
+            <option value="american">American</option>
+            <option value="british">British</option>
+            <option value="australian">Australian</option>
+            <option value="canadian">Canadian</option>
+        </select><br><br>
+        Email:
+        <input type="email" id="user-email"><br><br>
+        Phone:
+        <input type="tel" id="user-phone"><br><br>
+        Date of Birth:
+        <input type="date" id="user-dob"><br><br>
+        Address:
+        <textarea id="user-address" rows="2" cols="30" ></textarea><br><br>        
+        <input type="submit" id="submit" value="Submit">
+        <input type="reset" id="reset" value="Reset">
+
+    </form>
+    <script>
+        
+        document.getElementById('reg-form').addEventListener('submit',function(event){
+            event.preventDefault(); // Prevent the default form submission
+            console.log('Form submission prevented!');
+        })
+    </script>
+</body>
+</html>

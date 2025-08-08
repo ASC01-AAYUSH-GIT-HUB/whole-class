@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- the meta charset tag specifies the character encoding for the HTML document
+         UTF-8 is used for Unicode characters like emojis and UTF-16 is used for more complex characters or different languages, some of them are korean,chinese -->
+        <meta charset="UTF-8">
+        <!-- the meta tag is used to control the layout on mobile browsers or the viewport settings for responsive web design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prevent Default Form Submission</title>
+    </head>
+    <body style="background-color: azure;">
+        <h1 style="color: blue;text-align: center;">Our first form</h1>
+        <form id="reg-form" style="margin: 50px;color: green ;border: 2px solid wheat;padding: 10px;border-radius: 10px;background-color: wheat;">
+            Name: 
+            <input type="text" id="user-name" required placeholder="write your name"><br><br>
+            Password: 
+            <input type="password" id="user-password" required placeholder="enter your password"><br><br>
+            Gender:
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender">Female<br><br>
+            <fieldset>
+                <legend>Food Preferences</legend>
+                <input type="radio" name="foodpreferences">vegetarian
+                <input type="radio" name="foodpreferences">non-vegetarian
+            </fieldset>
+            <br>
+            Nationality:
+            <select id="nationality" >
+                <option value="indian">Indian</option>
+                <option value="american">American</option>
+                <option value="british">British</option>
+                <option value="australian">Australian</option>
+                <option value="canadian">Canadian</option>
+            </select><br><br>
+            Email:
+            <input type="email" id="user-email"><br><br>
+            Phone:
+            <input type="tel" id="user-phone"><br><br>
+            Date of Birth:
+            <input type="date" id="user-dob"><br><br>
+            Address:
+            <textarea id="user-address" rows="2" cols="30" ></textarea><br><br>        
+            <input type="submit" id="submit" value="Submit">
+            <input type="reset" id="reset" value="Reset">
+
+        </form>
+        <script>
+            var username=document.getElementById('user-name').value;
+            var userpassword=document.getElementById('user-password').value;
+            console.log('Username:', username);
+            console.log('User Password:', userpassword);
+            //  This line will log the username to the console when the script runs, but it won't work as expected because the form hasn't been submitted yet.
+        </script>
+        <!-- below two scripts are for preventing default form submission, we can use either any one will work  -->
+        
+        <!-- in first script we created the variable registrationform and a function handleFormEvent which is called on form submission which prevent the direct form submission of form details to the server -->
+        
+        
+        <!-- <script>
+            var registrationform=document.getElementById('reg-form');
+            registrationform.addEventListener('submit',handleFormEvent);
+            
+            function handleFormEvent(event){
+                event.preventDefault(); // Prevent the default form submission
+                console.log('Form submission prevented!');
+            }
+        </script> -->
+
+
+        <!-- second script is an anonymous function directly attached to the form's submit event -->
+        <script>
+            document.getElementById('reg-form').addEventListener('submit',function(event){
+                event.preventDefault(); // Prevent the default form submission
+                console.log('Form submission prevented!');
+            });
+        </script>
+        <script>
+            
+        </script>
+
+        <!-- <script>
+            document.getElementById('reg-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                alert('Form submission prevented!');
+            });
+        </script> -->
+        <!-- <script>
+            var registrationform=document.getElementById('reg-form');
+            registrationform.addEventListener('submit',handleFormEvent);
+            
+            function handleFormEvent(event){
+                event.preventDefault(); // Prevent the default form submission
+                alert('Form submission prevented!');
+
+            var username=document.getElementById('user-name').value;
+            console.log('Username:', username);
+
+            }
+        </script> -->
+    </body>
+</html>

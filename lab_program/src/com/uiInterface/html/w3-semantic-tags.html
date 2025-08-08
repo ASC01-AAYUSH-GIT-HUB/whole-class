@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W3 Semantic Tags</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header, nav, main, footer, section, article, aside, figure, figcaption, mark, summary, details, dialog {
+            padding: 1em;
+            border: 1px solid #ccc;
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<!-- semantic tags which we are going to discuss
+ header,nav,main,footer,section,article,aside,figure,figcaption,mark,summary,details,dialog -->
+<!-- <header> - the header information
+    <nav> - the navigation links
+    <main> - the main content area
+    <footer> - the footer information
+    <section> - a section of content
+    <article> - an independent piece of content
+    <aside> - content related to the main content
+    <figure> - self-contained content
+    <figcaption> - caption for a <figure>
+    <mark> - highlighted text
+    <summary> - summary for a <details>
+    <details> - additional details
+    <dialog> - a dialog box -->
+ <body>
+    <header>
+        <h1>W3 Semantic Tags</h1>
+        <nav>
+            <ul>
+                <li><a href="#main">Main</a></li>
+                <li><a href="#section">Section</a></li>
+                <li><a href="#article">Article</a></li>
+                <li><a href="#aside">Aside</a></li>
+                <li><a href="#figure">Figure</a></li>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#dialog">Dialog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <section id="section">
+            <h2>Section Example</h2>
+            <p>This is a section of the page.</p>
+        </section>
+        <article id="article">
+            <h2>Article Example</h2>
+            <p>This is an article, which is a self-contained piece of content.</p>
+        </article>
+        <aside id="aside">
+            <h2>Aside Example</h2>
+            <p>This is aside content, related but not essential to the main content.</p>
+        </aside>
+        <figure id="figure" style="display: flex; gap: 20px;">
+  
+  <figure style="margin: 0;">
+    <img src="carimg.jpg" alt="First Image" width="300" height="auto">
+    <figcaption>This is the first image.</figcaption>
+  </figure>
+
+  <figure style="margin: 0;">
+    <img src="carimg2.jpg" alt="Second Image" width="300" height="auto">
+    <figcaption>This is the second image.</figcaption>
+  </figure>
+
+</figure>
+
+        <section>
+            <h2>Mark Example</h2>
+            <p>This is <mark>highlighted text</mark> using the mark tag.</p>
+        </section>
+        <details id="details">
+            <summary>Click for more details</summary>
+            <p>This is hidden content inside the details tag.</p>
+        </details>
+        <button onclick="document.getElementById('dialog').showModal()">Open Dialog</button>
+        <dialog id="dialog" style="margin: auto;">
+            <p>This is a dialog box.</p>
+            <form method="dialog">
+                <p><button>Close</button></p>
+            </form>
+        </dialog>
+    </main>
+    <footer>
+        <p>&copy; 2023 W3 Semantic Tags</p>
+    </footer>
+</body>
+</html>
