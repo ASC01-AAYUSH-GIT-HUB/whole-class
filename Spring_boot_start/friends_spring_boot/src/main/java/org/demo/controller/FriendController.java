@@ -4,9 +4,7 @@ import org.demo.entity.FriendEntity;
 import org.demo.repository.FriendRepository;
 import org.demo.service.FriendService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.GeneratedValue;
 import java.util.List;
@@ -23,6 +21,15 @@ public class FriendController {
     @GetMapping("/goodfriend")
     List<FriendEntity> getAllFriend(){
         return friendService.getAllFriends();
+    }
+
+    @GetMapping("/friendID/{id}")
+    FriendEntity getFriendById(@PathVariable Long id){
+        return friendService.getFriendbyid(id);
+    }
+    @PostMapping("/addfriend")
+    void addingFriend(@RequestBody FriendEntity friend){
+        friendService.addFriend(friend);
     }
 
 

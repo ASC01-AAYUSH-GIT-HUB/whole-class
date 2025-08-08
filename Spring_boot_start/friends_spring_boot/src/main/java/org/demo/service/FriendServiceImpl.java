@@ -18,4 +18,16 @@ public class FriendServiceImpl implements FriendService {
         System.err.println("Database value is returned");
         return this.friendRepository.findAll();
     }
+
+    @Override
+    public FriendEntity getFriendbyid(Long id) {
+        System.err.println("Getting particular friend");
+        return  this.friendRepository.getById(id);
+    }
+
+    @Override
+    public void addFriend(FriendEntity friend) {
+        System.err.println("friend is going to added");
+        this.friendRepository.save(friend);
+    }
 }
