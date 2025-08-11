@@ -1,12 +1,10 @@
 package org.demo.controller;
 
 import org.demo.entity.FriendEntity;
-import org.demo.repository.FriendRepository;
 import org.demo.service.FriendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.GeneratedValue;
 import java.util.List;
 
 @RestController
@@ -25,7 +23,7 @@ public class FriendController {
 
     @GetMapping("/{id}")
     FriendEntity getFriendById(@PathVariable Long id){
-        return friendService.getFriendbyid(id);
+        return friendService.getFriendById(id);
     }
     @PostMapping("/addfriend")
     FriendEntity addingFriend(@RequestBody FriendEntity friend){
@@ -34,6 +32,10 @@ public class FriendController {
     @DeleteMapping("/delete{id}")
     void deleteFriend(@PathVariable Long id){
         friendService.deletFriend(id);
+    }
+    @PutMapping("/update{id}")
+    FriendEntity updatingFriend(@PathVariable Long id,@RequestBody FriendEntity updateFriend){
+        return friendService.updateFriendById(id,updateFriend);
     }
 
 

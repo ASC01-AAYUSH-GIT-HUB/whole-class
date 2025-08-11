@@ -20,7 +20,7 @@ public class FriendServiceImpl implements FriendService {
     }
 
     @Override
-    public FriendEntity getFriendbyid(Long id) {
+    public FriendEntity getFriendById(Long id) {
         System.err.println("Getting particular friend");
         return friendRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Friend not found with id " + id));
@@ -35,7 +35,18 @@ public class FriendServiceImpl implements FriendService {
 
     @Override
     public void deletFriend(Long id) {
-        System.err.println("Friend with id:"+id+"is removed from friend list");
+        System.err.println("Friend with id: "+id+" is removed from friend list");
         this.friendRepository.deleteById(id);
+    }
+
+    @Override
+    public FriendEntity updateFriendById(Long id,FriendEntity existingFriend) {
+        System.err.println("friend with id: "+id+" is going to get updated");
+        FriendEntity friendEntity= friendRepository.findById(id).get();
+        friendEntity.setFirstName(existingFriend.getFirstName());
+        friendEntity.setLastName(existingFriend.getLastName());
+        friendEntity.setAge(existingFriend.getAge());
+        friendEntity.setEmail(existingFriend.getEmail());
+        return friendRepository.save(friendEntity);
     }
 }

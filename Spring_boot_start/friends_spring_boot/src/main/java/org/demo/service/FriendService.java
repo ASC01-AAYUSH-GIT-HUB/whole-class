@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface FriendService {
     List<FriendEntity> getAllFriends();
-    FriendEntity getFriendbyid(Long id);
+    FriendEntity getFriendById(Long id);
     FriendEntity addFriend(FriendEntity friend);
     void deletFriend(Long id);
+    FriendEntity updateFriendById(Long id,FriendEntity existingFriend);
 }
