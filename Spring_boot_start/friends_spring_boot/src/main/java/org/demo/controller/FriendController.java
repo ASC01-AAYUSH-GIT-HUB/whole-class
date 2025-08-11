@@ -23,13 +23,17 @@ public class FriendController {
         return friendService.getAllFriends();
     }
 
-    @GetMapping("/friendID/{id}")
+    @GetMapping("/{id}")
     FriendEntity getFriendById(@PathVariable Long id){
         return friendService.getFriendbyid(id);
     }
     @PostMapping("/addfriend")
-    void addingFriend(@RequestBody FriendEntity friend){
-        friendService.addFriend(friend);
+    FriendEntity addingFriend(@RequestBody FriendEntity friend){
+        return friendService.addFriend(friend);
+    }
+    @DeleteMapping("/delete{id}")
+    void deleteFriend(@PathVariable Long id){
+        friendService.deletFriend(id);
     }
 
 

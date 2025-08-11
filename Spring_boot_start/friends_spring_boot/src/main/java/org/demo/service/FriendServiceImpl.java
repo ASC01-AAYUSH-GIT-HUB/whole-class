@@ -22,12 +22,20 @@ public class FriendServiceImpl implements FriendService {
     @Override
     public FriendEntity getFriendbyid(Long id) {
         System.err.println("Getting particular friend");
-        return  this.friendRepository.getById(id);
+        return friendRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Friend not found with id " + id));
+    }
+
+
+    @Override
+    public FriendEntity addFriend(FriendEntity friend) {
+        System.err.println("friend is going to added");
+        return this.friendRepository.save(friend);
     }
 
     @Override
-    public void addFriend(FriendEntity friend) {
-        System.err.println("friend is going to added");
-        this.friendRepository.save(friend);
+    public void deletFriend(Long id) {
+        System.err.println("Friend with id:"+id+"is removed from friend list");
+        this.friendRepository.deleteById(id);
     }
 }

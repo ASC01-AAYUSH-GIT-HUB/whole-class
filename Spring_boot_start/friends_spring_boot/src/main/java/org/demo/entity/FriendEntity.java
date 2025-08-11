@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name="FRIENDS")
 public class FriendEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "FIRST_NAME", nullable = false)
     private String firstName;
@@ -19,8 +19,10 @@ public class FriendEntity {
     @Column(name = "EMAIL",nullable = false)
     private String email;
 
-    public FriendEntity(Long id, String firstName, String lastName, Byte age, String email) {
-        this.id = id;
+    public FriendEntity() {
+    }
+
+    public FriendEntity( String firstName, String lastName, Byte age, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
