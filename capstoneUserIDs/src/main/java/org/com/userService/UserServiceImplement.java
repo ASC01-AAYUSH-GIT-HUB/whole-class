@@ -1,5 +1,6 @@
 package org.com.userService;
 
+import org.com.userEntity.UserDisplayEntity;
 import org.com.userEntity.UserIdEntity;
 import org.com.userRepo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,30 @@ public class UserServiceImplement implements UserServiceInterface{
     }
 
     @Override
-    public UserIdEntity getById(String userId) {
-        return userRepo.findByUserId(userId);
+    public UserDisplayEntity getById(String userId) {
+        UserIdEntity userIdEntity=userRepo.findByUserId(userId);
+        return new UserDisplayEntity(userIdEntity.getUserId(),userIdEntity.getUserName());
     }
 
     @Override
     public List<UserIdEntity> getByName(String userName) {
         return userRepo.findByUserNameIgnoreCase(userName);
     }
+
+    @Override
+    public UserIdEntity addUser(UserIdEntity userIdEntity) {
+        UserIdEntity userIdEntity1= userRepo.save(userIdEntity);
+        userIdEntity1.generateUserId();
+        return userRepo.save(userIdEntity1);
+    }
+
+    @Override
+    public void update(UserIdEntity userIdEntity) {
+        UserIdEntity userIdEntity1=userRepo.findByUserId(userIdEntity.getUserId());
+        userIdEntity1.setUserName(userIdEntity.getUserName());
+        userIdEntity1.setUserPass(userIdEntity.getUserPass());
+        userRepo.save(userIdEntity);
+    }
+
+
 }

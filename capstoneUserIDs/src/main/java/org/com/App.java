@@ -15,8 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableJpaRepositories(basePackages = "org.com.userRepo")
-@EntityScan(basePackages = "org.com.userEntity")
+//@EnableJpaRepositories(basePackages = "org.com.userRepo")
+//@EntityScan(basePackages = "org.com.userEntity")
 public class App 
 {
     public static void main( String[] args )

@@ -12,7 +12,7 @@ public class UserIdEntity {
     private String userId;
     private String userName;
     private String userPass;
-    @PrePersist
+
     public void generateUserId(){
         if (id !=null){
             userId=String.format("U%03d",id);
@@ -22,9 +22,7 @@ public class UserIdEntity {
     public UserIdEntity() {
     }
 
-    public UserIdEntity(Long id, String userId, String userName, String userPass) {
-        this.id = id;
-        this.userId = userId;
+    public UserIdEntity(String userName, String userPass) {
         this.userName = userName;
         this.userPass = userPass;
     }

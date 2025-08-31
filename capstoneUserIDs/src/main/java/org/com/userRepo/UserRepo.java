@@ -1,5 +1,6 @@
 package org.com.userRepo;
 
+import org.com.userEntity.UserDisplayEntity;
 import org.com.userEntity.UserIdEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
