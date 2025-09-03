@@ -1,11 +1,16 @@
 package org.com.service;
 
+import org.com.dto.RegisterAdminDTO;
+import org.com.dto.ResultDTO;
 import org.com.entity.AdminEntity;
 import org.com.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AdminServiceImpl implements AdminServiceInterface{
@@ -76,5 +81,39 @@ public class AdminServiceImpl implements AdminServiceInterface{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<ResultDTO> getAllAdmin() {
+        List<AdminEntity> admins=adminRepository.findAll();
+        List<ResultDTO> admins1=new ArrayList<>();
+        for(AdminEntity a:admins){
+            ResultDTO resultDTO = new ResultDTO();
+            resultDTO.setName(a.getName());
+            resultDTO.setEmail(a.getEmail());
+            resultDTO.setPhoneNo(a.getPhoneNo());
+            admins1.add(resultDTO);
+        }
+        return admins1;
+    }
+
+    @Override
+    public String register(RegisterAdminDTO registerAdminDTO) {
+        if (registerAdminDTO.getEmail() != null && registerAdminDTO.getEmail().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+            if (registerAdminDTO.getPhoneNo() != null && registerAdminDTO.getPhoneNo().matches("^[0-9]{10}$")){
+                AdminEntity entity=AdminEntity.builder()
+                        .name(registerAdminDTO.getName())
+                        .email(registerAdminDTO.getEmail())
+                        .phoneNo(registerAdminDTO.getPhoneNo())
+                        .password(registerAdminDTO.getPassword())
+                        .build();
+                adminRepository.save(entity);
+                return "your user is added to the db";
+            }else {
+                return "Invalid Phone Number";
+            }
+        } else {
+            return "Invalid email format";
+        }
     }
 }

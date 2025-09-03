@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PassengerRepository extends JpaRepository<PassengerEntity,String> {
-    boolean existsByEmail(String email);
+    boolean existsByEmail(String email);// derived query keywords
     boolean existsByPhone(String phone);
 }

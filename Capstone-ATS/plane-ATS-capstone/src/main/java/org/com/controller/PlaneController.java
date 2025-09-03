@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/ats/plane")
 
 public class PlaneController {
     private final PlaneServiceInterface planeService;
@@ -20,7 +20,7 @@ public class PlaneController {
         this.planeService=planeService;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<PlaneEntity> addPlane(@Valid @RequestBody PlaneDTO planeDTO) {
         return ResponseEntity.ok(planeService.addPlane(planeDTO));
     }
@@ -30,7 +30,7 @@ public class PlaneController {
         return ResponseEntity.ok(planeService.getPlaneById(id));
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<PlaneEntity>> getAllPlanes() {
         return ResponseEntity.ok(planeService.getAllPlanes());
     }

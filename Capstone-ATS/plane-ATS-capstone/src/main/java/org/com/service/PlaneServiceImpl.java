@@ -1,6 +1,7 @@
 package org.com.service;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.com.dto.PlaneDTO;
 import org.com.entity.PlaneEntity;
 import org.com.repository.PlaneRepository;
@@ -27,10 +28,10 @@ public class PlaneServiceImpl implements PlaneServiceInterface{
                 .build();
         return planeRepository.save(plane);
     }
-
+    @PersistenceContext
     private EntityManager entityManager;
     private String generatePlaneId() {
-        Integer nextVal = (Integer) entityManager
+        Number nextVal = (Number) entityManager
                 .createNativeQuery("SELECT NEXT VALUE FOR FlightSeq")
                 .getSingleResult();
         return String.format("F%04d", nextVal);

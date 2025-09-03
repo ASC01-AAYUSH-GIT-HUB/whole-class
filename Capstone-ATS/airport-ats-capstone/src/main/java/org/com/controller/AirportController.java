@@ -20,6 +20,7 @@ public class AirportController {
     public AirportController(AirportServiceImpl airportService){
         this.airportService=airportService;
     }
+
     @PostMapping("/create")
     public ResponseEntity<AirportEntity> createAirport(@Valid @RequestBody AirportRequestDTO dto) {
         return ResponseEntity.ok(airportService.createAirport(dto));
@@ -40,5 +41,4 @@ public class AirportController {
         airportService.deleteAirport(id);
         return ResponseEntity.noContent().build();
     }
-
 }

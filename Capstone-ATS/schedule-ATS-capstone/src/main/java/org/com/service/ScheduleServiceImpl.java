@@ -1,6 +1,7 @@
 package org.com.service;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import org.com.dto.ScheduleRequestDTO;
 import org.com.dto.ScheduleResponseDTO;
@@ -22,7 +23,7 @@ public class ScheduleServiceImpl implements ScheduleServiceInterface {
     private final ScheduleRepository scheduleRepository;
     private final PlaneRepository planeRepository;
     private final AirportRepository airportRepository;
-
+    @PersistenceContext
     private EntityManager entityManager;
     private String generateScheduleId(){
         Integer nextVal = (Integer) entityManager

@@ -1,6 +1,7 @@
 package org.com.service;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.com.dataTransferObject.AirportRequestDTO;
 import org.com.entity.AirportEntity;
 import org.com.repository.AirportRepository;
@@ -19,10 +20,11 @@ public class AirportServiceImpl implements AirportServiceInterface{
         this.airportRepository=airportRepository;
     }
 
+    @PersistenceContext
     private EntityManager entityManager;
 
     private String generateId() {
-        Integer nextVal = (Integer) entityManager
+        Number nextVal = (Number) entityManager
                 .createNativeQuery("SELECT NEXT VALUE FOR AirportSeq")
                 .getSingleResult();
 
@@ -34,6 +36,7 @@ public class AirportServiceImpl implements AirportServiceInterface{
         if (airportRepository.existsByCode(dto.getCode())) {
             throw new IllegalArgumentException("Airport code already exists");
         }
+        System.out.println(dto.getName()+"\n"+dto.getCity()+"\n"+dto.getCountry()+"\n"+dto.getCode());
 
         AirportEntity entity = AirportEntity.builder()
                 .airportId(generateId())

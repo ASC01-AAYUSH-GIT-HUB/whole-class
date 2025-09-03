@@ -34,6 +34,7 @@ public class PassengerController {
 
     @GetMapping("/all")
     public ResponseEntity<List<PassengerEntity>> getAllPassengers() {
+
         return ResponseEntity.ok(passengerService.getAllPassengers());
     }
 

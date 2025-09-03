@@ -14,8 +14,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PlaneDTO {
 
-    private String planeId; // Generated automatically in service
-
     @NotBlank(message = "Plane name cannot be blank")
     private String planeName;
 

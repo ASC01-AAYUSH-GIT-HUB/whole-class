@@ -20,15 +20,22 @@ public class AdminEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private String name;
+
     @Column(nullable = false, unique = true)
     private String email;  // loginId
 
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false,unique = true)
+    private String phoneNo;
+
     private int failedAttempts = 0;
 
     private boolean accountLocked = false;
 
     private LocalDateTime lockTime;
+
 }
