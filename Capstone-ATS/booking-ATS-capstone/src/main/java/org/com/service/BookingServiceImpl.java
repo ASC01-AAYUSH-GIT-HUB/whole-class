@@ -1,6 +1,7 @@
 package org.com.service;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import org.com.dto.BookingRequestDTO;
 import org.com.dto.BookingResponseDTO;
@@ -24,10 +25,11 @@ public class BookingServiceImpl implements BookingService {
     private final PassengerRepository passengerRepository;
 
     // Generate Booking ID in format B0001, B0002...
+    @PersistenceContext
     private EntityManager entityManager;
 
     private String generateBookingId() {
-        Integer nextVal = (Integer) entityManager
+        Number nextVal = (Number) entityManager
                 .createNativeQuery("SELECT NEXT VALUE FOR BookingSeq")
                 .getSingleResult();
         return String.format("B%04d", nextVal);

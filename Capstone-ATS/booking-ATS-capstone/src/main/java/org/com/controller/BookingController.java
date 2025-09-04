@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/ats/bookings")
 @RequiredArgsConstructor
@@ -26,7 +27,7 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.getBookingById(id));
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<BookingResponseDTO>> getAllBookings() {
         return ResponseEntity.ok(bookingService.getAllBookings());
     }

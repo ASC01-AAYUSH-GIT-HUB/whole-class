@@ -26,7 +26,7 @@ public class ScheduleServiceImpl implements ScheduleServiceInterface {
     @PersistenceContext
     private EntityManager entityManager;
     private String generateScheduleId(){
-        Integer nextVal = (Integer) entityManager
+        Number nextVal = (Number) entityManager
                 .createNativeQuery("SELECT NEXT VALUE FOR ScheduleSeq")
                 .getSingleResult();
         return String.format("S%04d", nextVal);
