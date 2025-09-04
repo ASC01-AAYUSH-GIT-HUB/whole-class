@@ -1,6 +1,7 @@
 package org.com.service;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.com.dto.PassengerDTO;
 import org.com.entity.PassengerEntity;
 import org.com.repository.PassengerRepository;
@@ -18,11 +19,11 @@ public class PassengerServiceImpl implements PassengerServiceInterface {
     public PassengerServiceImpl(PassengerRepository passengerRepository){
         this.passengerRepository=passengerRepository;
     }
-
+    @PersistenceContext
     private EntityManager entityManager;  // simple ID generator for demo
 
     private String generatePassengerId() {
-        Integer nextVal = (Integer) entityManager
+        Number nextVal = (Number) entityManager
                 .createNativeQuery("SELECT NEXT VALUE FOR PassengerSeq")
                 .getSingleResult();
         return String.format("P%04d", nextVal);

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/ats/passengers")
 
@@ -39,8 +40,7 @@ public class PassengerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PassengerEntity> updatePassenger(@PathVariable String id,
-                                                           @Valid @RequestBody PassengerDTO passengerDTO) {
+    public ResponseEntity<PassengerEntity> updatePassenger(@PathVariable String id, @Valid @RequestBody PassengerDTO passengerDTO) {
         return ResponseEntity.ok(passengerService.updatePassenger(id, passengerDTO));
     }
 
