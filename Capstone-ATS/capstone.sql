@@ -1,10 +1,7 @@
 
 
 
-INSERT INTO admins (email, password, failed_attempts, account_locked, lock_time)
-VALUES 
-('admin1@example.com', 'Admin@123', 0, 0, NULL),
-('admin2@example.com', 'Admin@456', 0, 0, NULL);
+
 SELECT * FROM admins;
 
 

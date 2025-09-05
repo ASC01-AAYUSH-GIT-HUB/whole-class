@@ -53,7 +53,11 @@ function App() {
         <nav style={{ marginBottom: "20px" }}>
           <Link to="/" style={{ marginRight: "20px" }}>Home</Link>
           <Link to="/admin" style={{ marginRight: "20px" }}>Admin</Link>
-          <Link to="/passenger">Passenger</Link>
+          <Link to="/passenger" style={{ marginRight: "20px" }}>Passenger</Link>
+          <Link to="/airport" style={{ marginRight: "20px" }}>Airport</Link>
+          <Link to="/plane" style={{ marginRight: "20px" }}>Plane</Link>
+          <Link to="/schedule" style={{ marginRight: "20px" }}>Schedule</Link>
+          <Link to="/booking" style={{ marginRight: "20px" }}>Booking</Link>
         </nav>
 
         <Routes>
