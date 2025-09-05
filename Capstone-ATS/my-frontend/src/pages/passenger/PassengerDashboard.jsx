@@ -7,8 +7,8 @@ function PassengerDashboard() {
       <nav style={{ marginBottom: "20px" }}>
         <Link to="list" style={{ marginRight: "15px" }}>List Passengers</Link>
         <Link to="create" style={{ marginRight: "15px" }}>Create Passenger</Link>
-        <Link to="update/1" style={{ marginRight: "15px" }}>Update Passenger</Link>
-        <Link to="delete/1">Delete Passenger</Link>
+        {/* <Link to="update/1" style={{ marginRight: "15px" }}>Update Passenger</Link>
+        <Link to="delete/1">Delete Passenger</Link> */}
       </nav>
 
       {/* Child routes render here */}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./AdminList.css"; // ✅ import CSS
 
 function AdminList() {
   const [admins, setAdmins] = useState([]);
@@ -11,13 +12,18 @@ function AdminList() {
   }, []);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>All Admins</h2>
-      <ul>
+    <div className="list-container">
+      <h2 className="list-title">All Admins</h2>
+
+      <div className="admin-grid">
         {admins.map((a, i) => (
-          <li key={i}>{a.name}<br/>{a.email}<br/>{a.phoneNo}</li>
+          <div key={i} className="admin-card">
+            <h3>{a.name}</h3>
+            <p><strong>Email:</strong> {a.email}</p>
+            <p><strong>Phone:</strong> {a.phoneNo}</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

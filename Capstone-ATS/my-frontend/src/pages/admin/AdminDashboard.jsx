@@ -17,3 +17,24 @@ function AdminDashboard() {
 }
 
 export default AdminDashboard;
+
+// import { Link, Outlet } from "react-router-dom";
+
+// function AdminDashboard() {
+//   return (
+//     <div style={{ padding: "20px" }}>
+//       <h2>Admin Dashboard</h2>
+
+//       <nav style={{ marginBottom: "20px" }}>
+//         <Link to="list" style={{ marginRight: "15px" }}>List Admins</Link>
+//         <Link to="auth">Login / Register</Link>
+//       </nav>
+
+//       {/* Child routes will render here */}
+//       <Outlet />
+//     </div>
+//   );
+// }
+
+// export default AdminDashboard;
+

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./PassengerUpdate.css";
 
 function PassengerUpdate() {
   const [id, setId] = useState("");
@@ -17,23 +18,63 @@ function PassengerUpdate() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedPassenger),
     })
-      .then((res) => res.json())
-      .then((data) => setMessage("Passenger updated: " + data.passengerId))
-      .catch((err) => setMessage("Error: " + err.message));
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to update passenger");
+        return res.json();
+      })
+      .then((data) => setMessage(`✅ Passenger updated: ${data.passengerId}`))
+      .catch((err) => setMessage("❌ Error: " + err.message));
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="passenger-update-container">
       <h2>Update Passenger</h2>
-      <form onSubmit={handleUpdate}>
-        <input placeholder="Passenger ID" value={id} onChange={(e) => setId(e.target.value)} required /><br /><br />
-        <input placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required /><br /><br />
-        <input placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} required /><br /><br />
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required /><br /><br />
-        <input placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} required /><br /><br />
-        <button type="submit">Update</button>
+
+      <form onSubmit={handleUpdate} className="passenger-update-form">
+        <input
+          type="text"
+          placeholder="Passenger ID"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
+
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="Phone (10 digits)"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required
+        />
+
+        <button type="submit">Update Passenger</button>
       </form>
-      {message && <p>{message}</p>}
+
+      {message && <p className="message">{message}</p>}
     </div>
   );
 }

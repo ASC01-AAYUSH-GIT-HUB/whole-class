@@ -1,6 +1,7 @@
 import { useState } from "react";
+import "./AdminRegister.css"; // ✅ import CSS
 
-function Register() {
+function AdminRegister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
@@ -21,54 +22,56 @@ function Register() {
         if (!res.ok) {
           throw new Error("Registration failed");
         }
-        return res.text(); // or res.json() depending on backend
+        return res.text(); // backend returns string
       })
       .then((msg) => setMessage(msg))
       .catch((err) => setMessage("Error: " + err.message));
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Register New Admin</h2>
-      <form onSubmit={handleRegister}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        /><br /><br />
+    <div className="register-container">
+      <div className="register-box">
+        <h2>Register New Admin</h2>
+        <form onSubmit={handleRegister}>
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        /><br /><br />
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        <input
-          type="text"
-          placeholder="Phone No"
-          value={phoneNo}
-          onChange={(e) => setPhoneNo(e.target.value)}
-          required
-        /><br /><br />
+          <input
+            type="text"
+            placeholder="Phone Number"
+            value={phoneNo}
+            onChange={(e) => setPhoneNo(e.target.value)}
+            required
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        /><br /><br />
+          <input
+            type="password"
+            placeholder="Create Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-        <button type="submit">Register</button>
-      </form>
+          <button type="submit">Register</button>
+        </form>
 
-      {message && <p>{message}</p>}
+        {message && <p className="register-message">{message}</p>}
+      </div>
     </div>
   );
 }
 
-export default Register;
+export default AdminRegister;

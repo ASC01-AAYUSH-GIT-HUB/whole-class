@@ -158,6 +158,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/ats/airport/A0002",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"ats",
+								"airport",
+								"A0002"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -242,6 +262,33 @@
 								"ats",
 								"plane",
 								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "plane by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4001/ats/plane/F0001",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"ats",
+								"plane",
+								"F0001"
 							]
 						}
 					},
@@ -358,6 +405,29 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/ats/passengers/P0002",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"ats",
+								"passengers",
+								"P0002"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -447,6 +517,29 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:6001/ats/schedules/S0002",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"ats",
+								"schedules",
+								"S0002"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -507,6 +600,29 @@
 					"request": {
 						"method": "GET",
 						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:7001/ats/bookings/B0001",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"ats",
+								"bookings",
+								"B0001"
+							]
+						}
 					},
 					"response": []
 				}
