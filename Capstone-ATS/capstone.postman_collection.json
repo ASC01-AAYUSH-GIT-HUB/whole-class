@@ -1,0 +1,516 @@
+{
+	"info": {
+		"_postman_id": "a52ea091-6442-4ed0-8f5c-98f11cbece82",
+		"name": "capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47440747"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "admin login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin2@example.com\",\r\n  \"password\": \"Admin@456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2001/ats/admin/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2001",
+							"path": [
+								"ats",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"Aayush\",\r\n    \"password\": \"pass1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9001/user/registeruser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"user",
+								"registeruser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:2001/ats/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "2001",
+							"path": [
+								"ats",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "airport",
+			"item": [
+				{
+					"name": "add airport",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Aashmaan Yatri\",\r\n    \"city\":\"Darbhanga\",\r\n    \"country\":\"India\",\r\n    \"code\":\"DAR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/ats/airport/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"ats",
+								"airport",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all airport",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "airport by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3001/ats/airport/A0002",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"ats",
+								"airport",
+								"A0002"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plane",
+			"item": [
+				{
+					"name": "add plane",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"planeName\":\"Air Life\",\r\n    \"model\":\"A02\",\r\n    \"capacity\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4001/ats/plane/add",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"ats",
+								"plane",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "plane by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4001/ats/plane/F0001",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"ats",
+								"plane",
+								"F0001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all plane",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4001/ats/plane/all",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"ats",
+								"plane",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Passenger",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/ats/passengers/all",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"ats",
+								"passengers",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Arjun\",\r\n    \"lastName\":\"Raj\",\r\n    \"email\":\"gopgopgop@mail.com\",\r\n    \"phone\":\"6573839283\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/ats/passengers/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"ats",
+								"passengers",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/ats/passengers/P0002",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"ats",
+								"passengers",
+								"P0002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Arjuna\",\r\n    \"lastName\": \"Raju\",\r\n    \"email\": \"gopgop@mail.com\",\r\n    \"phone\": \"6573739283\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/ats/passengers/P0002",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"ats",
+								"passengers",
+								"P0002"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "schedule",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:6001/ats/schedules/all",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"ats",
+								"schedules",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"planeId\": \"F0002\",\r\n  \"departureAirportId\": \"A0002\",\r\n  \"arrivalAirportId\": \"A0003\",\r\n  \"departureTime\": \"2025-09-30T15:30:00\",\r\n  \"arrivalTime\": \"2025-09-30T17:45:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6001/ats/schedules/create",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"ats",
+								"schedules",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"planeId\": \"F0002\",\r\n    \"departureAirportId\": \"A0003\",\r\n    \"arrivalAirportId\": \"A0002\",\r\n    \"departureTime\": \"2025-09-30T15:30:00\",\r\n    \"arrivalTime\": \"2025-09-30T17:45:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6001/ats/schedules/S0002",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"ats",
+								"schedules",
+								"S0002"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "booking",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7001/ats/bookings/all",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"ats",
+								"bookings",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scheduleId\":\"S0001\",\r\n    \"passengerId\":\"P0002\",\r\n    \"seatNumber\":\"16B\",\r\n    \"status\":\"CONFIRMED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7001/ats/bookings/initiate",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"ats",
+								"bookings",
+								"initiate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
