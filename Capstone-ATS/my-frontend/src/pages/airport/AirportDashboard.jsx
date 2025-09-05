@@ -1,17 +1,25 @@
 import { Link, Outlet } from "react-router-dom";
+import "./AirportDashboard.css";
 
 function AirportDashboard() {
   return (
-    <div>
-      <h2>Airport Dashboard</h2>
-      <nav style={{ marginBottom: "20px" }}>
-        <Link to="list" style={{ marginRight: "15px" }}>List Airports</Link>
-        <Link to="create" style={{ marginRight: "15px" }}>Create Airport</Link>
-        <Link to="detail/1" style={{ marginRight: "15px" }}>Get Airport by ID</Link>
-        <Link to="delete/1">Delete Airport</Link>
-      </nav>
+    <div className="airport-container">
+      {/* Sidebar */}
+      <aside className="airport-sidebar">
+        <h2 className="airport-logo">Airport Panel</h2>
+        <nav className="airport-nav">
+          <Link to="list" className="airport-link">🛫 List Airports</Link>
+          <Link to="create" className="airport-link">➕ Create Airport</Link>
+          <Link to="detail/1" className="airport-link">🔍 Get Airport by ID</Link>
+          <Link to="delete/1" className="airport-link">❌ Delete Airport</Link>
+        </nav>
+      </aside>
 
-      <Outlet />
+      {/* Main Content */}
+      <main className="airport-main">
+        <h2 className="airport-title">Welcome to Airport Dashboard</h2>
+        <Outlet /> {/* Child routes render here */}
+      </main>
     </div>
   );
 }

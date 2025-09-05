@@ -1,18 +1,24 @@
 import { Link, Outlet } from "react-router-dom";
+import "./PassengerDashboard.css";
 
 function PassengerDashboard() {
   return (
-    <div>
-      <h2>Passenger Dashboard</h2>
-      <nav style={{ marginBottom: "20px" }}>
-        <Link to="list" style={{ marginRight: "15px" }}>List Passengers</Link>
-        <Link to="create" style={{ marginRight: "15px" }}>Create Passenger</Link>
-        {/* <Link to="update/1" style={{ marginRight: "15px" }}>Update Passenger</Link>
-        <Link to="delete/1">Delete Passenger</Link> */}
-      </nav>
+    <div className="passenger-container">
+      {/* Sidebar */}
+      <aside className="passenger-sidebar">
+        <h2 className="passenger-logo">Passenger Panel</h2>
+        <nav className="passenger-nav">
+          <Link to="list" className="passenger-link">📋 List Passengers</Link>
+          <Link to="create" className="passenger-link">➕ Create Passenger</Link>
+          {/* Future expansion: Update/Delete */}
+        </nav>
+      </aside>
 
-      {/* Child routes render here */}
-      <Outlet />
+      {/* Main Content */}
+      <main className="passenger-main">
+        <h2 className="passenger-title">Welcome to Passenger Dashboard</h2>
+        <Outlet /> {/* Child routes will render here */}
+      </main>
     </div>
   );
 }

@@ -1,16 +1,25 @@
 import { Link, Outlet } from "react-router-dom";
+import "./BookingDashboard.css";
 
 function BookingDashboard() {
   return (
-    <div>
-      <h2>Booking Dashboard</h2>
-      <nav style={{ marginBottom: "20px" }}>
-        <Link to="list" style={{ marginRight: "15px" }}>List Bookings</Link>
-        <Link to="create" style={{ marginRight: "15px" }}>Create Booking</Link>
-        <Link to="detail/1" style={{ marginRight: "15px" }}>Get Booking by ID</Link>
-        <Link to="delete/1">Delete Booking</Link>
-      </nav>
-      <Outlet />
+    <div className="booking-container">
+      {/* Sidebar */}
+      <aside className="booking-sidebar">
+        <h2 className="booking-logo">📖 Booking Panel</h2>
+        <nav className="booking-nav">
+          <Link to="list" className="booking-link">📋 List Bookings</Link>
+          <Link to="create" className="booking-link">➕ Create Booking</Link>
+          <Link to="detail/1" className="booking-link">🔍 Get Booking by ID</Link>
+          <Link to="delete/1" className="booking-link">❌ Delete Booking</Link>
+        </nav>
+      </aside>
+
+      {/* Main content */}
+      <main className="booking-main">
+        <h2 className="booking-title">Welcome to Booking Dashboard</h2>
+        <Outlet /> {/* Child routes render here */}
+      </main>
     </div>
   );
 }

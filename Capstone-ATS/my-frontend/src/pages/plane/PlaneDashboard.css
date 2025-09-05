@@ -1,0 +1,52 @@
+.plane-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.plane-sidebar {
+  width: 220px;
+  background: #34495e;
+  color: #ecf0f1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.plane-logo {
+  margin-bottom: 30px;
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 1px solid #2c3e50;
+  padding-bottom: 10px;
+}
+
+.plane-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plane-link {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.plane-link:hover {
+  background: #2c3e50;
+}
+
+/* Main content */
+.plane-main {
+  flex: 1;
+  padding: 30px;
+  background: #f9fafb;
+}
+
+.plane-title {
+  margin-bottom: 20px;
+}

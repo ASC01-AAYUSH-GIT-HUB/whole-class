@@ -1,18 +1,26 @@
 import { Link, Outlet } from "react-router-dom";
+import "./PlaneDashboard.css";
 
 function PlaneDashboard() {
   return (
-    <div>
-      <h2>Plane Dashboard</h2>
-      <nav style={{ marginBottom: "20px" }}>
-        <Link to="list" style={{ marginRight: "15px" }}>List Planes</Link>
-        <Link to="add" style={{ marginRight: "15px" }}>Add Plane</Link>
-        <Link to="detail/1" style={{ marginRight: "15px" }}>Get Plane by ID</Link>
-        <Link to="update/1" style={{ marginRight: "15px" }}>Update Plane</Link>
-        <Link to="delete/1">Delete Plane</Link>
-      </nav>
+    <div className="plane-container">
+      {/* Sidebar */}
+      <aside className="plane-sidebar">
+        <h2 className="plane-logo">✈️ Plane Panel</h2>
+        <nav className="plane-nav">
+          <Link to="list" className="plane-link">📋 List Planes</Link>
+          <Link to="add" className="plane-link">➕ Add Plane</Link>
+          <Link to="detail/1" className="plane-link">🔍 Get Plane by ID</Link>
+          <Link to="update/1" className="plane-link">✏️ Update Plane</Link>
+          <Link to="delete/1" className="plane-link">❌ Delete Plane</Link>
+        </nav>
+      </aside>
 
-      <Outlet />
+      {/* Main Content */}
+      <main className="plane-main">
+        <h2 className="plane-title">Welcome to Plane Dashboard</h2>
+        <Outlet /> {/* Child routes render here */}
+      </main>
     </div>
   );
 }
